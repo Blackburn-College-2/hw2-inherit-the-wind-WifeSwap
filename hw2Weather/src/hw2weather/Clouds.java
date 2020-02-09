@@ -6,7 +6,7 @@
 package hw2weather;
 
 /**
- *
+ * clouds effect
  * @author Gabl
  */
 public class Clouds extends WeatherEffect {
@@ -17,7 +17,10 @@ public class Clouds extends WeatherEffect {
     public Clouds() {      
         cloudType = (int) (Math.random() * 4);
     }
-    
+    /**
+     * 
+     * @return measurement used to represent change to weather (affect on weather, Celsius) 
+     */
     @Override
     public Measurement getWeatherEffect() {
         if (cloudType == 0) {
@@ -31,6 +34,10 @@ public class Clouds extends WeatherEffect {
         }
         return weatherEffect;
     }
+    /**
+     * 
+     * @return string of cloudType (None/Light/Medium/Heavy)
+     */
     @Override
     public String toString(){
         

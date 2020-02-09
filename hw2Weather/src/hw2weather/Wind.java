@@ -6,7 +6,7 @@
 package hw2weather;
 
 /**
- *
+ * Wind effect
  * @author Gabl
  */
 public class Wind extends WeatherEffect {
@@ -18,13 +18,24 @@ public class Wind extends WeatherEffect {
         windSpeed.setValue((int)Math.round(Math.random()*25));
         windSpeed.setUnit("kph");
     }
+    /**
+     * 
+     * @return int value used to represent wind direction
+     */
     public int getWindDirection(){
         return windDirection;
     }
+    /**
+     * 
+     * @return measurement associated with wind speed (wind speed, kph)
+     */
     public double getWindSpeed(){
         return windSpeed.getValue();
     }
-    
+    /**
+     * 
+     * @return measurement used to represent change to weather (affect on weather, Celsius) 
+     */
     @Override
     public Measurement getWeatherEffect(){
         if(windDirection == 1){
@@ -34,6 +45,10 @@ public class Wind extends WeatherEffect {
         }
         return weatherEffect;
     }
+    /**
+     * 
+     * @return Concatenated string of (wind speed, kph), (wind speed, mph)  and direction
+     */
     @Override
     public String toString(){
         if(windDirection == 1){

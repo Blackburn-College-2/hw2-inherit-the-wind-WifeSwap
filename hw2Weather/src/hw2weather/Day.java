@@ -30,6 +30,12 @@ public class Day {
         today.middayTemperature.setUnit("C");
     }
 
+    /**
+     * sets current morning temperature based on yesterday midday temperature and weather phenomenons (if yesterday's weather class was passed in when making today) 
+     * or
+     * sets current morning temperature to a random value (if yesterday's weather class wasn't passed in when making today)
+     * @return Measurement of current morning temperature
+     */
     public Measurement getMorningTemperature() {
         if (hasYesterday) {
             yesterday.precipitation.setSnow(yesterday.middayTemperature);
@@ -41,7 +47,11 @@ public class Day {
         }
         return today.morningTemperature;
     }
-
+/**
+ * sets current morning temperature based on earlier temperature and weather phenomenons (clouds)
+ * sets snow to true or false based on temperature
+ * @return Measurement of current midday temperature
+ */
     public Measurement getMiddayTemperature() {
         today.middayTemperature.setValue(today.morningTemperature.getValue() + today.clouds.getWeatherEffect().getValue());
         today.precipitation.setSnow(today.middayTemperature);
@@ -49,6 +59,10 @@ public class Day {
         return today.middayTemperature;
     }
 
+    /**
+     * 
+     * @return concatenated string that can be seen in the souts in runner
+     */
     public String toString() {
         getMorningTemperature();
         getMiddayTemperature();

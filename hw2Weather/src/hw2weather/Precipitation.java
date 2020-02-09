@@ -6,7 +6,7 @@
 package hw2weather;
 
 /**
- *
+ * precipitation effect
  * @author Gabl
  */
 public class Precipitation extends WeatherEffect {
@@ -18,7 +18,10 @@ public class Precipitation extends WeatherEffect {
         amount.setValue(Math.round(Math.random()*8));
         amount.setUnit("cm");
     }
-
+/**
+ * checks if there is snow and sets the presence of snow to true/false
+ * @param temperature current temperature
+ */
     public void setSnow(Measurement temperature) {
         if (temperature.getValue() < 0) {
             snow = true;
@@ -26,7 +29,10 @@ public class Precipitation extends WeatherEffect {
             snow = false;
         }
     }
-
+/**
+ * 
+ * @return measurement used to represent change to weather (affect on weather, Celsius) 
+ */
     @Override
     public Measurement getWeatherEffect() {
         if (snow) {
@@ -36,7 +42,10 @@ public class Precipitation extends WeatherEffect {
         }
         return weatherEffect;
     }
-
+/**
+ * 
+ * @return concatenated string of (precipitation amount, cm), (precipitation amount, in), snow or rain
+ */
     @Override
     public String toString() {
         if (snow) {

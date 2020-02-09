@@ -6,7 +6,7 @@
 package hw2weather;
 
 /**
- *
+ * abstract class used to give weatherEffects the getWeatherEffect method
  * @author Gabl
  */
 public abstract class WeatherEffect {

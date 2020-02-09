@@ -6,7 +6,7 @@
 package hw2weather;
 
 /**
- *
+ * weather class
  * @author Gabl
  */
 public class Weather {
