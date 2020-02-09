@@ -9,17 +9,28 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Precipitation {
+public class Precipitation extends WeatherEffect {
+
     public int amount;
     public boolean snow;
-    
-    public Precipitation(){
-        amount = (int)Math.round(Math.random()*30);
+
+    public Precipitation() {
+        amount = (int) Math.round(Math.random() * 30);
     }
-    public boolean isSnow(Measurement temperature){
-        if (temperature.getValue() < 0){
-            return true;
+
+    public void setSnow(Measurement temperature) {
+        if (temperature.getValue() < 0) {
+            snow = true;
+        } else {
+            snow = false;
         }
-        return false;
+    }
+
+    @Override
+    public Measurement getWeatherEffect(){
+        if (snow) {
+            weatherEffect.setValue(5);
+        }
+        return weatherEffect;
     }
 }

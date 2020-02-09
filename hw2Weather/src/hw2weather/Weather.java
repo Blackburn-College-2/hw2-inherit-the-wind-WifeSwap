@@ -9,7 +9,7 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Weather {
+public class Weather extends Day {
     public Clouds clouds;
     public Wind wind;
     public Precipitation precipitation;

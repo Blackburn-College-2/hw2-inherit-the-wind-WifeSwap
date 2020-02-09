@@ -9,13 +9,13 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Clouds extends WeatherEffect {
+public abstract class WeatherEffect {
+    Measurement weatherEffect;
     
+    public WeatherEffect(){
+        weatherEffect = new Measurement(0, "C");
+    }
     
-    
-    @Override
-    public int getWeatherEffect();{
-    return 
-}
+    public abstract Measurement getWeatherEffect();
     
 }

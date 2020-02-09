@@ -9,18 +9,29 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Wind {
+public class Wind extends WeatherEffect {
     public int windDirection;
     public Measurement windSpeed;
     
     public Wind(){
-        windDirection=(int)(Math.random()*3);
+        windDirection=(int)(Math.random()*2)+1;
         windSpeed.setValue((int)Math.round(Math.random()*25));
+        windSpeed.setUnit("kph");
     }
     public int getWindDirection(){
         return windDirection;
     }
-    public int getWindSpeed(){
+    public double getWindSpeed(){
         return windSpeed.getValue();
+    }
+    
+    @Override
+    public Measurement getWeatherEffect(){
+        if(windDirection == 1){
+            weatherEffect.setValue(windSpeed.getValue()*-.65);
+        }else{
+            weatherEffect.setValue(windSpeed.getValue()*.5);
+        }
+        return weatherEffect;
     }
 }

@@ -9,13 +9,6 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Clouds extends WeatherEffect {
-    
-    
-    
-    @Override
-    public int getWeatherEffect();{
-    return 
-}
+public class Day {
     
 }
