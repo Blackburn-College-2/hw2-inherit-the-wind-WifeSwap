@@ -9,12 +9,12 @@ package hw2weather;
  *
  * @author Gabl
  */
-public class Weather extends Day {
+public class Weather {
     public Clouds clouds;
     public Wind wind;
     public Precipitation precipitation;
-    public Measurement morningTemperature;
-    public Measurement middayTemperature;
+    public Measurement morningTemperature = new Measurement();
+    public Measurement middayTemperature = new Measurement();
     
     public Weather(){
         clouds = new Clouds();

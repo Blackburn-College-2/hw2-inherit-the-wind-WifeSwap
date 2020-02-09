@@ -11,7 +11,7 @@ package hw2weather;
  */
 public class Wind extends WeatherEffect {
     public int windDirection;
-    public Measurement windSpeed;
+    public Measurement windSpeed = new Measurement();
     
     public Wind(){
         windDirection=(int)(Math.random()*2)+1;
@@ -33,5 +33,13 @@ public class Wind extends WeatherEffect {
             weatherEffect.setValue(windSpeed.getValue()*.5);
         }
         return weatherEffect;
+    }
+    @Override
+    public String toString(){
+        if(windDirection == 1){
+        return windSpeed.toString() + "/" + windSpeed.toMPH()+ " N";
+        }else{
+            return windSpeed.toString() + "/" + windSpeed.toMPH()+ " S";
+        }
     }
 }

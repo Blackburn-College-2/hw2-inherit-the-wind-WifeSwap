@@ -11,11 +11,12 @@ package hw2weather;
  */
 public class Precipitation extends WeatherEffect {
 
-    public int amount;
+    public Measurement amount = new Measurement();
     public boolean snow;
 
-    public Precipitation() {
-        amount = (int) Math.round(Math.random() * 30);
+    public Precipitation() {  
+        amount.setValue(Math.round(Math.random()*8));
+        amount.setUnit("cm");
     }
 
     public void setSnow(Measurement temperature) {
@@ -27,10 +28,21 @@ public class Precipitation extends WeatherEffect {
     }
 
     @Override
-    public Measurement getWeatherEffect(){
+    public Measurement getWeatherEffect() {
         if (snow) {
-            weatherEffect.setValue(5);
+            weatherEffect.setValue(-1.5 * amount.getValue());
+        } else {
+            weatherEffect.setValue(-.9 * amount.getValue());
         }
         return weatherEffect;
+    }
+
+    @Override
+    public String toString() {
+        if (snow) {
+            return (Math.round(10 * amount.getValue()) + " " + amount.getUnit() + "/" + Math.round(10.0 * amount.getValue() / 2.54)) + "in Snow";
+        } else {
+            return amount.toString() + "/" + amount.toIN() + " rain";
+        }
     }
 }
